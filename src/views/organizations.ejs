@@ -7,8 +7,14 @@
   <h2>Partner Organizations</h2>
   <p>Here you can find a list of organizations we partner with.</p>
   
-  <!-- Image required per instructions -->
-  <img src="/images/cse340-service-network.png" alt="CSE 340 Service Network Logo" style="max-width: 200px;">
+  <ul>
+    <% organizations.forEach(organization => { %>
+      <li>
+        <img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo" style="max-width: 200px;">
+        <strong><%= organization.name %></strong>: <%= organization.contact_email %>
+      </li>
+    <% }); %>
+  </ul>
 </main>
 
 <%- include('partials/footer') %>

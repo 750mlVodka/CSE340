@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { testConnection } from './src/models/db.js';
+import { getAllOrganizations } from './src/models/organizations.js';
 
 // Define the application environment
 const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || 'production'
@@ -35,8 +36,10 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Home' });
 });
 
-app.get('/organizations', (req, res) => {
-  res.render('organizations', { title: 'Organizations' });
+app.get('/organizations', async (req, res) => {
+  const organizations = await getAllOrganizations();
+  const title = 'Organizations';
+  res.render('organizations', { title, organizations });
 });
 
 app.get('/projects', (req, res) => {
