@@ -6,6 +6,15 @@
 
   <h2>Current Projects</h2>
   <p>Discover service projects happening in your area.</p>
+
+  <ul>
+    <% projects.forEach(project => { %>
+        <li>
+            <%= new Date(project.date).toDateString() %>: 
+            <%= project.title %> (<%= project.organization_name %>)    
+        </li>
+    <% }); %>
+  </ul>
 </main>
 
 <%- include('partials/footer') %>
