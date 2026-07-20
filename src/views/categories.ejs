@@ -5,6 +5,12 @@
   <h1>Service Project Categories</h1>
 
   <ul class="category-list">
+      <% categories.forEach(category => { %>
+          <li><%= category.name %></li>
+      <% }) %>
+  </ul>
+
+  <ul class="category-list">
     <li>Environmental</li>
     <li>Educational</li>
     <li>Community Service</li>
